@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 
@@ -46,10 +45,20 @@ int main() {
             }
         }
 
-
-
-
-
+        // listar
+        else if (opcao ==2){
+            if (total == 0){
+                printf("Nenhum cliente cadastrado.\n");
+            } else {
+                printf("\n--- LISTA DE CLIENTES ---\n");
+                for (int i = 0; i < total; i++){
+                    printf("ID: %d\n", clientes[i].id);
+                    printf("Nome: %s\n", clientes[i].nome);
+                    printf("Telefone: %s\n", clientes[i].telefone);
+                    printf("-------------------------\n");
+                }
+            }
+        }
         // OPÇÃO INVÁLIDA
         else if (opcao != 4) {
             printf("Opcao invalida!\n");
