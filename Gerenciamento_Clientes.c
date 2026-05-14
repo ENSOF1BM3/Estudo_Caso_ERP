@@ -45,13 +45,13 @@ int main() {
             }
         }
 
-        // listar
-        else if (opcao ==2){
-            if (total == 0){
+        // LISTAR
+        else if (opcao == 2) {
+            if (total == 0) {
                 printf("Nenhum cliente cadastrado.\n");
             } else {
                 printf("\n--- LISTA DE CLIENTES ---\n");
-                for (int i = 0; i < total; i++){
+                for (int i = 0; i < total; i++) {
                     printf("ID: %d\n", clientes[i].id);
                     printf("Nome: %s\n", clientes[i].nome);
                     printf("Telefone: %s\n", clientes[i].telefone);
@@ -59,6 +59,31 @@ int main() {
                 }
             }
         }
+
+        // BUSCAR
+        else if (opcao == 3) {
+            char busca[50];
+            int encontrado = 0;
+
+            printf("Digite o nome para busca: ");
+            fgets(busca, 50, stdin);
+            busca[strcspn(busca, "\n")] = '\0';
+
+            for (int i = 0; i < total; i++) {
+                if (strcmp(clientes[i].nome, busca) == 0) {
+                    printf("\nCliente encontrado:\n");
+                    printf("ID: %d\n", clientes[i].id);
+                    printf("Nome: %s\n", clientes[i].nome);
+                    printf("Telefone: %s\n", clientes[i].telefone);
+                    encontrado = 1;
+                }
+            }
+
+            if (encontrado == 0) {
+                printf("Cliente nao encontrado.\n");
+            }
+        }
+
         // OPÇÃO INVÁLIDA
         else if (opcao != 4) {
             printf("Opcao invalida!\n");
